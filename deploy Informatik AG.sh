@@ -4,7 +4,7 @@
 #set -e
 
 # build
-npm run build
+#npm run build
 
 # navigate into the build output directory
 cd dist
@@ -25,7 +25,8 @@ git commit -m 'deploy new version'
 
 # if you are deploying to https://<USERNAME>.github.io
 git push -f git@github.com:Herder-Informatik-AG/Herder-Informatik-AG.github.io.git main:gh-pages
+git show-ref
 
 cd -
 
-sleep 5s
+sleep 10s

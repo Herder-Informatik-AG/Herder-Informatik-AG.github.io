@@ -20,10 +20,6 @@
                     ><icon name="flag" scale="1.2" class="symbol"></icon>
                     Ziele
                 </b-nav-item>
-                <b-nav-item to="/kalendar" disabled
-                    ><icon name="calendar" scale="1.2" class="symbol"></icon>
-                    Kalendar
-                </b-nav-item>
             </b-navbar-nav>
         </b-collapse>
     </b-navbar>
