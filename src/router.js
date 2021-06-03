@@ -8,26 +8,18 @@ export default new Router({
     routes: [
         {
             path: '/',
-            redirect: '/Informatik-AG/Home',
+            redirect: '/Home',
         },
         {
-            path: '/Informatik-AG/Home',
+            path: '/Home',
             component: () => import('./views/Home.vue'),
         },
         {
             path: '/Kalendar',
-            redirect: '/Informatik-AG/Kalendar',
-        },
-        {
-            path: '/Informatik-AG/Kalendar',
             component: () => import('./views/Calendar.vue'),
         },
         {
             path: '/Ziele',
-            redirect: '/Informatik-AG/Ziele',
-        },
-        {
-            path: '/Informatik-AG/Ziele',
             component: () => import('./views/Ziele.vue'),
         },
         {
