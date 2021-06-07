@@ -19,6 +19,10 @@ export default new Router({
             component: () => import('./views/Ziele.vue'),
         },
         {
+            path: '/Termine/:date',
+            component: () => import('./views/Termine.vue'),
+        },
+        {
             path: '*',
             redirect: '/',
         },
