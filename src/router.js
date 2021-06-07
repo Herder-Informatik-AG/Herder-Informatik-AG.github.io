@@ -15,8 +15,8 @@ export default new Router({
             component: () => import('./views/Home.vue'),
         },
         {
-            path: '/Ziele',
-            component: () => import('./views/Ziele.vue'),
+            path: '/Konzept',
+            component: () => import('./views/Konzept.vue'),
         },
         {
             path: '/Termine/:date',

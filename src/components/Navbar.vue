@@ -12,13 +12,13 @@
 
         <b-collapse is-nav id="nav_collapse">
             <b-navbar-nav>
-                <b-nav-item to="/home"
+                <b-nav-item to="/Home"
                     ><icon name="home" scale="1.2" class="symbol"></icon>
                     Home</b-nav-item
                 >
-                <b-nav-item to="/ziele"
+                <b-nav-item to="/Konzept"
                     ><icon name="flag" scale="1.2" class="symbol"></icon>
-                    Ziele
+                    Konzept
                 </b-nav-item>
 
                 <b-nav-item-dropdown text="Termine">
