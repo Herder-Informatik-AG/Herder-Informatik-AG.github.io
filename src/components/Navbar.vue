@@ -5,7 +5,7 @@
         class="navbar-dark sticky-top bg-dark"
     >
         <b-navbar-toggle target="nav_collapse"></b-navbar-toggle>
-        <b-navbar-brand to="/home" class="navbar-brand">
+        <b-navbar-brand to="/Home" class="navbar-brand">
             <img src="../assets/images/logo.png" id="navbar-logo" />
             Informatik-AG
         </b-navbar-brand>
