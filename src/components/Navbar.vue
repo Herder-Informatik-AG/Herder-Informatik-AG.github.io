@@ -48,7 +48,7 @@ export default {
     methods: {
         getData: async function () {
             const termine = await sendJsonRequest(dataURL);
-            this.termine = termine;
+            this.termine = termine.filenames;
         },
     },
     mounted() {
