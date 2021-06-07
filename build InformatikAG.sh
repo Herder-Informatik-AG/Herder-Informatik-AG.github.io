@@ -15,5 +15,3 @@ cp index.html 404.html
 # if you don't want your website listed
 echo 'User-agent: * 
 Disallow: /' > robots.txt
-
-sleep 10s
