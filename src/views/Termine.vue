@@ -13,7 +13,7 @@
 
 <script>
 const terminUrl =
-    'https://github.com/Herder-Informatik-AG/Herder-Informatik-AG.github.io/tree/main/Termine';
+    'https://raw.githubusercontent.com/Herder-Informatik-AG/Herder-Informatik-AG.github.io/main/Termine';
 export default {
     name: 'Termine',
     data() {
@@ -29,10 +29,22 @@ export default {
                 this.terminHTML = terminHTML;
             });
     },
+    watch: {
+        $route(to, from) {
+            this.date = to.params.date;
+        },
+        date(newValue, oldValue) {
+            fetch(`${terminUrl}/${this.date}.html`)
+                .then(async (data) => data.text())
+                .then((terminHTML) => {
+                    this.terminHTML = terminHTML;
+                });
+        },
+    },
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 @import '../style/bootstrap-component-include';
 @import '../style/pageStyle.scss';
 

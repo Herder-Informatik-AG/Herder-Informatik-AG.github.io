@@ -20,14 +20,40 @@
                     ><icon name="flag" scale="1.2" class="symbol"></icon>
                     Ziele
                 </b-nav-item>
+
+                <b-nav-item-dropdown text="Termine">
+                    <b-dropdown-item
+                        v-for="termin in termine"
+                        :key="termin"
+                        :to="'/Termine/' + termin"
+                        >{{ termin }}</b-dropdown-item
+                    >
+                </b-nav-item-dropdown>
             </b-navbar-nav>
         </b-collapse>
     </b-navbar>
 </template>
 
 <script>
+import { sendJsonRequest } from '../services/utility-functions/send-json-request.js';
+const dataURL =
+    'https://raw.githubusercontent.com/Herder-Informatik-AG/Herder-Informatik-AG.github.io/main/Termine/list.json';
 export default {
     name: 'Navbar',
+    data() {
+        return {
+            termine: [],
+        };
+    },
+    methods: {
+        getData: async function () {
+            const termine = await sendJsonRequest(dataURL);
+            this.termine = termine;
+        },
+    },
+    mounted() {
+        this.getData();
+    },
 };
 </script>
 
