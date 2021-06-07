@@ -21,7 +21,11 @@
                     Konzept
                 </b-nav-item>
 
-                <b-nav-item-dropdown text="Termine">
+                <b-nav-item-dropdown>
+                    <template #button-content>
+                        <icon name="calendar" scale="1.2" class="symbol"></icon>
+                        Termine
+                    </template>
                     <b-dropdown-item
                         v-for="termin in termine"
                         :key="termin"
@@ -29,6 +33,17 @@
                         >{{ termin }}</b-dropdown-item
                     >
                 </b-nav-item-dropdown>
+            </b-navbar-nav>
+            <b-navbar-nav class="ml-auto">
+                <b-nav-form>
+                    <b-nav-item to="/Info"
+                        ><icon
+                            name="info-circle"
+                            scale="1.2"
+                            class="symbol"
+                        ></icon
+                    ></b-nav-item>
+                </b-nav-form>
             </b-navbar-nav>
         </b-collapse>
     </b-navbar>

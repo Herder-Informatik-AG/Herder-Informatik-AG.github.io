@@ -19,6 +19,10 @@ export default new Router({
             component: () => import('./views/Konzept.vue'),
         },
         {
+            path: '/Info',
+            component: () => import('./views/Info.vue'),
+        },
+        {
             path: '/Termine/:date',
             component: () => import('./views/Termine.vue'),
         },

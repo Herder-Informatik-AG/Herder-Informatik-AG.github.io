@@ -58,7 +58,7 @@
 
 <script>
 export default {
-    name: 'Infrastructure',
+    name: 'Konzept',
     data() {
         return {};
     },
