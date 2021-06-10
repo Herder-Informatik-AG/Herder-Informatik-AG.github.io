@@ -23,6 +23,10 @@ export default new Router({
             component: () => import('./views/Info.vue'),
         },
         {
+            path: '/Terminvorschau',
+            component: () => import('./views/Terminvorschau.vue'),
+        },
+        {
             path: '/Termine/:date',
             component: () => import('./views/Termine.vue'),
         },
