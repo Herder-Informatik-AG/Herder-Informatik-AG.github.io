@@ -50,7 +50,7 @@
                         <b-dropdown-item
                             v-for="projectName in category.projects"
                             :key="projectName"
-                            :to="'/Projekt/' + projectName"
+                            :to="'/Projekte/' + projectName"
                             >{{ projectName }}</b-dropdown-item
                         >
                     </b-dropdown-group>
