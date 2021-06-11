@@ -6,6 +6,12 @@
                 <div class="container">
                     <div v-html="terminHTML"></div>
                 </div>
+                <div v-if="invalidHTML">
+                    HTML Code nicht valide
+                    <b-button variant="danger" @click="showInvalidHTML()">
+                        Trotzdem anzeigen
+                    </b-button>
+                </div>
             </div>
         </div>
     </div>
@@ -20,6 +26,7 @@ export default {
         return {
             date: this.$route.params.date,
             terminHTML: '',
+            invalidHTML: '',
         };
     },
     mounted() {
@@ -37,8 +44,28 @@ export default {
             fetch(`${terminUrl}/${this.date}.html`)
                 .then(async (data) => data.text())
                 .then((terminHTML) => {
-                    this.terminHTML = terminHTML;
+                    if (this.validHTMLCode(terminHTML)) {
+                        this.terminHTML = terminHTML;
+                    } else {
+                        this.invalidHTML = terminHTML;
+                        console.log('HTML Code nicht valide:');
+                        console.log(terminHTML);
+                    }
                 });
+        },
+    },
+    methods: {
+        validHTMLCode(text) {
+            const pattern = new RegExp(
+                '^((<("[^"]*"|\'[^\']*\'|[^\'">])*>)((.|\\n)*)(</("[^"]*"|\'[^\']*\'|[^\'">])*>)\\n*)*$'
+            );
+            return pattern.test(text);
+        },
+        showInvalidHTML() {
+            if (this.invalidHTML) {
+                this.terminHTML = this.invalidHTML;
+                this.invalidHTML = '';
+            }
         },
     },
 };

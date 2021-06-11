@@ -50,7 +50,9 @@ export default {
     },
     computed: {
         validHTMLCode() {
-            const pattern = new RegExp('<("[^"]*"|\'[^\']*\'|[^\'">])*>');
+            const pattern = new RegExp(
+                '^((<("[^"]*"|\'[^\']*\'|[^\'">])*>)((.|\\n)*)(</("[^"]*"|\'[^\']*\'|[^\'">])*>)\\n*)*$'
+            );
             return pattern.test(this.HTMLtext);
         },
     },
