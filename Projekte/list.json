@@ -1,5 +1,5 @@
 {
     "categories": [
-        { "name": "Demos", "projects": ["LED-Matrix", "OLED-Bildschirm"] }
+        { "name": "Demos", "projects": ["LED-Streifen", "OLED-Bildschirm"] }
     ]
 }
