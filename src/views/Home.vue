@@ -1,7 +1,7 @@
 <template>
     <div>
         <header class="image-header">
-            <img src="../assets/images/background01.jpg" />
+            <img src="../assets/images/background02.jpg" />
             <div class="viewport-header">
                 <h1 class="glow">
                     Informatik-AG

@@ -115,7 +115,7 @@ export default {
 
 #landing-container {
     background-size: cover;
-    background-image: url('../assets/images/background01.jpg');
+    background-image: url('../assets/images/background02.jpg');
     background-color: rgb(41, 49, 51);
     margin-bottom: 0px;
     position: relative;
