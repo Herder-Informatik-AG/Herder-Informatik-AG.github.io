@@ -31,6 +31,10 @@ export default new Router({
             component: () => import('./views/Termine.vue'),
         },
         {
+            path: '/Projekte/:name',
+            component: () => import('./views/Projekte.vue'),
+        },
+        {
             path: '*',
             redirect: '/',
         },

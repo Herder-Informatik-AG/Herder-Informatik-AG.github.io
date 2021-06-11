@@ -33,6 +33,28 @@
                         >{{ termin }}</b-dropdown-item
                     >
                 </b-nav-item-dropdown>
+                <b-nav-item-dropdown>
+                    <template #button-content>
+                        <icon
+                            name="folder-open"
+                            scale="1.2"
+                            class="symbol"
+                        ></icon>
+                        Projekte
+                    </template>
+                    <b-dropdown-group
+                        v-for="category in projectCategories"
+                        :key="category.name"
+                        :header="category.name"
+                    >
+                        <b-dropdown-item
+                            v-for="projectName in category.projects"
+                            :key="projectName"
+                            :to="'/Projekt/' + projectName"
+                            >{{ projectName }}</b-dropdown-item
+                        >
+                    </b-dropdown-group>
+                </b-nav-item-dropdown>
             </b-navbar-nav>
             <b-navbar-nav class="ml-auto">
                 <b-nav-form>
@@ -51,19 +73,24 @@
 
 <script>
 import { sendJsonRequest } from '../services/utility-functions/send-json-request.js';
-const dataURL =
+const terminURL =
     'https://raw.githubusercontent.com/Herder-Informatik-AG/Herder-Informatik-AG.github.io/main/Termine/list.json';
+const projectURL =
+    'https://raw.githubusercontent.com/Herder-Informatik-AG/Herder-Informatik-AG.github.io/main/Projekte/list.json';
 export default {
     name: 'Navbar',
     data() {
         return {
             termine: [],
+            projectCategories: [],
         };
     },
     methods: {
         getData: async function () {
-            const termine = await sendJsonRequest(dataURL);
+            const termine = await sendJsonRequest(terminURL);
+            const projekte = await sendJsonRequest(projectURL);
             this.termine = termine.filenames;
+            this.projectCategories = projekte.categories;
         },
     },
     mounted() {

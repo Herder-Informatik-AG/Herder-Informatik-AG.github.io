@@ -1,0 +1,5 @@
+{
+    "categories": [
+        { "name": "Demos", "projects": ["LED-Matrix", "OLED-Bildschirm"] }
+    ]
+}
