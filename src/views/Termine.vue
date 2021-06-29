@@ -1,10 +1,9 @@
 <template>
     <div>
         <div id="landing-container">
-            <div></div>
             <div id="landing" class="container container-onepage">
                 <div class="container">
-                    <div v-html="terminHTML"></div>
+                    <div class="col-md-12 col" v-html="terminHTML"></div>
                 </div>
                 <div v-if="invalidHTML">
                     HTML Code nicht valide
@@ -91,6 +90,7 @@ export default {
 #landing {
     > div {
         background-color: rgba(0, 0, 0, 0.5);
+        display: table-row;
     }
 
     color: #ffffff;
