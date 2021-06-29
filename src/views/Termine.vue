@@ -29,29 +29,15 @@ export default {
             invalidHTML: '',
         };
     },
-    mounted() {
-        fetch(`${terminUrl}/${this.date}.html`)
-            .then(async (data) => data.text())
-            .then((terminHTML) => {
-                this.terminHTML = terminHTML;
-            });
+    async mounted() {
+        await this.fetchCode();
     },
     watch: {
         $route(to, from) {
             this.date = to.params.date;
         },
-        date(newValue, oldValue) {
-            fetch(`${terminUrl}/${this.date}.html`)
-                .then(async (data) => data.text())
-                .then((terminHTML) => {
-                    if (this.validHTMLCode(terminHTML)) {
-                        this.terminHTML = terminHTML;
-                    } else {
-                        this.invalidHTML = terminHTML;
-                        console.log('HTML Code nicht valide:');
-                        console.log(terminHTML);
-                    }
-                });
+        async date(newValue, oldValue) {
+            await this.fetchCode();
         },
     },
     methods: {
@@ -65,6 +51,28 @@ export default {
             if (this.invalidHTML) {
                 this.terminHTML = this.invalidHTML;
                 this.invalidHTML = '';
+            }
+        },
+        async fetchCode() {
+            fetch(`${terminUrl}/${this.date}.html`)
+                .then(async (data) => data.text())
+                .then((HTMLCode) => {
+                    this.applyContent(HTMLCode);
+                });
+        },
+        applyContent(htmlCode) {
+            this.invalidHTML = '';
+            this.terminHTML = '';
+            if (htmlCode === '404: Not Found') {
+                console.log('Seite existiert nicht');
+                this.terminHTML =
+                    '<h1> Diese Seite existiert nocht nicht </h1>';
+            } else if (this.validHTMLCode(htmlCode)) {
+                this.terminHTML = htmlCode;
+            } else {
+                this.invalidHTML = htmlCode;
+                console.log('HTML Code nicht valide:');
+                console.log(htmlCode);
             }
         },
     },

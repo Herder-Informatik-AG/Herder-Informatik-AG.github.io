@@ -18,8 +18,8 @@
 </template>
 
 <script>
-const terminUrl =
-    'https://raw.githubusercontent.com/Herder-Informatik-AG/Herder-Informatik-AG.github.io/main/Termine';
+const projektUrl =
+    'https://raw.githubusercontent.com/Herder-Informatik-AG/Herder-Informatik-AG.github.io/main/Projekte';
 export default {
     name: 'Projekte',
     data() {
@@ -29,29 +29,15 @@ export default {
             invalidHTML: '',
         };
     },
-    mounted() {
-        fetch(`${terminUrl}/${this.date}.html`)
-            .then(async (data) => data.text())
-            .then((projektHTML) => {
-                this.projektHTML = projektHTML;
-            });
+    async mounted() {
+        await this.fetchCode();
     },
     watch: {
         $route(to, from) {
-            this.date = to.params.date;
+            this.name = to.params.name;
         },
-        date(newValue, oldValue) {
-            fetch(`${terminUrl}/${this.date}.html`)
-                .then(async (data) => data.text())
-                .then((projektHTML) => {
-                    if (this.validHTMLCode(projektHTML)) {
-                        this.projektHTML = projektHTML;
-                    } else {
-                        this.invalidHTML = projektHTML;
-                        console.log('HTML Code nicht valide:');
-                        console.log(projektHTML);
-                    }
-                });
+        async name(newValue, oldValue) {
+            await this.fetchCode();
         },
     },
     methods: {
@@ -65,6 +51,28 @@ export default {
             if (this.invalidHTML) {
                 this.projektHTML = this.invalidHTML;
                 this.invalidHTML = '';
+            }
+        },
+        async fetchCode() {
+            fetch(`${projektUrl}/${this.name}.html`)
+                .then(async (data) => data.text())
+                .then((HTMLCode) => {
+                    this.applyContent(HTMLCode);
+                });
+        },
+        applyContent(htmlCode) {
+            this.invalidHTML = '';
+            this.projektHTML = '';
+            if (htmlCode === '404: Not Found') {
+                console.log('Seite existiert nicht');
+                this.projektHTML =
+                    '<h1> Diese Seite existiert nocht nicht </h1>';
+            } else if (this.validHTMLCode(htmlCode)) {
+                this.projektHTML = htmlCode;
+            } else {
+                this.invalidHTML = htmlCode;
+                console.log('HTML Code nicht valide:');
+                console.log(htmlCode);
             }
         },
     },
