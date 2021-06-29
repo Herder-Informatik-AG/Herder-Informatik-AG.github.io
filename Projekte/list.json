@@ -1,5 +1,16 @@
 {
     "categories": [
-        { "name": "Demos", "projects": ["LED-Streifen", "OLED-Bildschirm"] }
+        {
+            "name": "Demos",
+            "projects": [
+                "LED-Streifen",
+                "OLED-Bildschirm",
+                "Bluetooth-Lautsprecher"
+            ]
+        },
+        {
+            "name": "Projektideen",
+            "projects": ["Bienen-AG", "LED-Matrix Display"]
+        }
     ]
 }
