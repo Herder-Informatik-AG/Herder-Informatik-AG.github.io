@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div id="landing-container" class="container-onepage-height">
+        <div id="landing-container">
             <div></div>
             <div id="landing" class="container container-onepage">
                 <div class="container">
@@ -83,25 +83,9 @@ export default {
 @import '../style/bootstrap-component-include';
 @import '../style/pageStyle.scss';
 
-.container-onepage-height {
-    height: calc(100vh - 57px);
-}
-
 .container-onepage {
     height: calc(100vh - 57px);
     display: table;
-}
-
-.card-columns {
-    @include media-breakpoint-only(sm) {
-        column-count: 2;
-    }
-    @include media-breakpoint-only(md) {
-        column-count: 3;
-    }
-    @include media-breakpoint-only(lg) {
-        column-count: 4;
-    }
 }
 
 #landing {
@@ -110,15 +94,6 @@ export default {
     }
 
     color: #ffffff;
-}
-
-#landing-img {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    object-fit: cover;
 }
 
 #landing-container {
