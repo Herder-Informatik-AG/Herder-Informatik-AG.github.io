@@ -10,7 +10,11 @@
         },
         {
             "name": "Projektideen",
-            "projects": ["Bienen-AG", "LED-Matrix Display"]
+            "projects": [
+                "Bienen-AG",
+                "LED-Matrix Display",
+                "Transparenter Bildschirm"
+            ]
         }
     ]
 }
