@@ -56,18 +56,19 @@
     </div>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import Vue from 'vue';
+export default Vue.extend({
     name: 'Konzept',
     data() {
         return {};
     },
     methods: {
-        newTab: function (link) {
+        newTab: function (link: string) {
             window.open(link, '_blank');
         },
     },
-};
+});
 </script>
 
 <style lang="scss" scoped>

@@ -16,10 +16,11 @@
     </div>
 </template>
 
-<script>
+<script lang="ts">
+import Vue from 'vue';
 const projektUrl =
     'https://raw.githubusercontent.com/Herder-Informatik-AG/Herder-Informatik-AG.github.io/main/Projekte';
-export default {
+export default Vue.extend({
     name: 'Projekte',
     data() {
         return {
@@ -32,15 +33,15 @@ export default {
         await this.fetchCode();
     },
     watch: {
-        $route(to, from) {
+        $route(to) {
             this.name = to.params.name;
         },
-        async name(newValue, oldValue) {
+        async name() {
             await this.fetchCode();
         },
     },
     methods: {
-        validHTMLCode(text) {
+        validHTMLCode(text: string) {
             const pattern = new RegExp(
                 '^((<("[^"]*"|\'[^\']*\'|[^\'">])*>)((.|\\n)*)(</("[^"]*"|\'[^\']*\'|[^\'">])*>)\\n*)*$'
             );
@@ -59,7 +60,7 @@ export default {
                     this.applyContent(HTMLCode);
                 });
         },
-        applyContent(htmlCode) {
+        applyContent(htmlCode: string) {
             this.invalidHTML = '';
             this.projektHTML = '';
             if (htmlCode === '404: Not Found') {
@@ -75,7 +76,7 @@ export default {
             }
         },
     },
-};
+});
 </script>
 
 <style lang="scss">

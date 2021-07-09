@@ -40,8 +40,9 @@
     </div>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import Vue from 'vue';
+export default Vue.extend({
     name: 'Terminvorschau',
     data() {
         return {
@@ -53,10 +54,10 @@ export default {
             const pattern = new RegExp(
                 '^((<("[^"]*"|\'[^\']*\'|[^\'">])*>)((.|\\n)*)(</("[^"]*"|\'[^\']*\'|[^\'">])*>)\\n*)*$'
             );
-            return pattern.test(this.HTMLtext);
+            return pattern.test((this as any).HTMLtext);
         },
     },
-};
+});
 </script>
 
 <style lang="scss">

@@ -71,24 +71,25 @@
     </b-navbar>
 </template>
 
-<script>
-import { sendJsonRequest } from '../services/utility-functions/send-json-request.js';
+<script lang="ts">
+import Vue from 'vue';
+import { sendJsonRequest } from '../services/utility-functions/send-json-request';
 const terminURL =
     'https://raw.githubusercontent.com/Herder-Informatik-AG/Herder-Informatik-AG.github.io/main/Termine/list.json';
 const projectURL =
     'https://raw.githubusercontent.com/Herder-Informatik-AG/Herder-Informatik-AG.github.io/main/Projekte/list.json';
-export default {
+export default Vue.extend({
     name: 'Navbar',
     data() {
         return {
-            termine: [],
-            projectCategories: [],
+            termine: [] as string[],
+            projectCategories: [] as Projekt[],
         };
     },
     methods: {
         getData: async function () {
-            const termine = await sendJsonRequest(terminURL);
-            const projekte = await sendJsonRequest(projectURL);
+            const termine = await sendJsonRequest<Termine>(terminURL);
+            const projekte = await sendJsonRequest<Projekte>(projectURL);
             this.termine = termine.filenames;
             this.projectCategories = projekte.categories;
         },
@@ -96,7 +97,20 @@ export default {
     mounted() {
         this.getData();
     },
-};
+});
+
+interface Termine {
+    filenames: string[];
+}
+
+interface Projekte {
+    categories: Projekt[];
+}
+
+interface Projekt {
+    name: string;
+    projects: string[];
+}
 </script>
 
 <style lang="scss" scoped>

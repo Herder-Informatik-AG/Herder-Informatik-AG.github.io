@@ -16,10 +16,11 @@
     </div>
 </template>
 
-<script>
+<script lang="ts">
+import Vue from 'vue';
 const terminUrl =
     'https://raw.githubusercontent.com/Herder-Informatik-AG/Herder-Informatik-AG.github.io/main/Termine';
-export default {
+export default Vue.extend({
     name: 'Termine',
     data() {
         return {
@@ -32,10 +33,10 @@ export default {
         await this.fetchCode();
     },
     watch: {
-        $route(to, from) {
+        $route(to) {
             this.date = to.params.date;
         },
-        async date(newValue, oldValue) {
+        async date() {
             await this.fetchCode();
         },
     },
@@ -59,7 +60,7 @@ export default {
                     this.applyContent(HTMLCode);
                 });
         },
-        applyContent(htmlCode) {
+        applyContent(htmlCode: string) {
             this.invalidHTML = '';
             this.terminHTML = '';
             if (htmlCode === '404: Not Found') {
@@ -75,7 +76,7 @@ export default {
             }
         },
     },
-};
+});
 </script>
 
 <style lang="scss">
