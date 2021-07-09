@@ -11,10 +11,12 @@
         "deploy": "gh-pages -d dist"
     },
     "dependencies": {
+        "@vue/eslint-config-prettier": "^6.0.0",
         "bootstrap-icons": "^1.0.0-alpha5",
         "core-js": "^2.6.5",
         "devextreme": "20.1-stable",
         "devextreme-vue": "20.1-stable",
+        "eslint-plugin-prettier": "^3.4.0",
         "json-loader": "^0.5.7",
         "moment": "^2.29.1",
         "sass-loader": "^7.1.0",
@@ -25,10 +27,16 @@
         "whatwg-fetch": "^3.4.0"
     },
     "devDependencies": {
+        "@typescript-eslint/eslint-plugin": "^4.18.0",
+        "@typescript-eslint/parser": "^4.18.0",
         "@vue/cli-plugin-babel": "^3.8.0",
         "@vue/cli-plugin-eslint": "^3.8.0",
+        "@vue/cli-plugin-router": "~4.5.0",
+        "@vue/cli-plugin-typescript": "~4.5.0",
         "@vue/cli-service": "^3.8.0",
         "@vue/eslint-config-standard": "^4.0.0",
+        "@vue/eslint-config-typescript": "^7.0.0",
+        "awesome-typescript-loader": "^5.2.1",
         "babel-eslint": "^10.0.1",
         "bootstrap": "^4.5.0",
         "bootstrap-vue": "^2.0.0-rc.21",
@@ -38,6 +46,7 @@
         "eslint-plugin-vue": "^5.0.0",
         "node-sass": "^4.12.0",
         "prettier": "^2.3.0",
+        "typescript": "^4.1.6",
         "vue-awesome": "^3.5.3",
         "vue-template-compiler": "^2.6.10"
     },
