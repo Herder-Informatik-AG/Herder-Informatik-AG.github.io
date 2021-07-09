@@ -7,14 +7,15 @@
     </div>
 </template>
 
-<script>
+<script lang="ts">
+import Vue from 'vue';
 import Navbar from './components/Navbar.vue';
-export default {
+export default Vue.extend({
     name: 'app',
     components: {
         navbar: Navbar,
     },
-};
+});
 </script>
 
 <style lang="scss">
