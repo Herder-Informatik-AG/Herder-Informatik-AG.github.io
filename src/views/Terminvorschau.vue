@@ -50,11 +50,11 @@ export default Vue.extend({
         };
     },
     computed: {
-        validHTMLCode() {
+        validHTMLCode(): boolean {
             const pattern = new RegExp(
                 '^((<("[^"]*"|\'[^\']*\'|[^\'">])*>)((.|\\n)*)(</("[^"]*"|\'[^\']*\'|[^\'">])*>)\\n*)*$'
             );
-            return pattern.test((this as any).HTMLtext);
+            return pattern.test(this.HTMLtext);
         },
     },
 });
