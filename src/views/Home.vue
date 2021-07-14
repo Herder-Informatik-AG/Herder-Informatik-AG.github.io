@@ -5,7 +5,7 @@
             <div class="viewport-header">
                 <h1 class="glow">
                     Informatik-AG
-                    <!-- <span> Julian und Jean-Pasqual</span> -->
+                    <!-- <span> Zeit ausstehend</span> -->
                 </h1>
             </div>
         </header>

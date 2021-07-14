@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div id="landing-container" class="container-onepage-height">
+        <div id="landing-container">
             <div></div>
             <div id="landing" class="container container-onepage">
                 <div class="container">
@@ -32,23 +32,30 @@
                         Am Ende der Projektarbeit haben alle AG-Teilnehmer ein
                         eigenes Projekt von Grund auf entwickelt und vertiefen
                         dabei folgende Kompetenzen:
-                        <ul>
-                            <li>Umgang mit Versionskontrollsystemen (Git, GitHub)</li>
-                            <li>Effektive Arbeit im Projektteam</li>
-                            <li>Softwareplanung/-modellierung</li>
-                            <li>Implementierung und Umgang mit geeigneten IDEs (Arduino IDE, VS Code)</li>
-                            <li>Entwicklung von Hardwareschaltkreisen</li>
-                            <li>Projekte verständlich Vorstellen (PowerPoint, LaTeX)</li>
-                        </ul>
                     </p>
+                    <ul>
+                        <li>
+                            Umgang mit Versionskontrollsystemen (Git, GitHub)
+                        </li>
+                        <li>Effektive Arbeit im Projektteam</li>
+                        <li>Softwareplanung/-modellierung</li>
+                        <li>
+                            Implementierung und Umgang mit geeigneten IDEs
+                            (Arduino IDE, VS Code)
+                        </li>
+                        <li>Entwicklung von Hardwareschaltkreisen</li>
+                        <li>
+                            Projekte verständlich Vorstellen (PowerPoint, LaTeX)
+                        </li>
+                    </ul>
                     <h2>Zielgruppe</h2>
                     <p>
                         Die AG richtet sich dabei insbesondere an Schülerinnen
-                        und Schüler der Klassenstufen 9 bis 12, welche den
-                        Informatikunterricht besuchen oder ein ausgeprägtes
-                        Interesse besitzen. In Einzelfällen können auch jüngere
-                        Schüler mit Vorkenntnissen nach Absprache an der AG
-                        teilnehmen.
+                        und Schüler der <strong>Klassenstufen 9 bis 12</strong>,
+                        welche den Informatikunterricht besuchen oder ein
+                        ausgeprägtes Interesse besitzen. In Einzelfällen können
+                        auch jüngere Schüler mit Vorkenntnissen nach Absprache
+                        an der AG teilnehmen.
                     </p>
                 </div>
             </div>
@@ -80,33 +87,12 @@ export default Vue.extend({
     display: table;
 }
 
-.card-columns {
-    @include media-breakpoint-only(sm) {
-        column-count: 2;
-    }
-    @include media-breakpoint-only(md) {
-        column-count: 3;
-    }
-    @include media-breakpoint-only(lg) {
-        column-count: 4;
-    }
-}
-
 #landing {
     > div {
         background-color: rgba(0, 0, 0, 0.5);
     }
 
     color: #ffffff;
-}
-
-#landing-img {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    object-fit: cover;
 }
 
 #landing-container {
