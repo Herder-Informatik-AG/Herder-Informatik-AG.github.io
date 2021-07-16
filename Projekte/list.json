@@ -10,11 +10,7 @@
         },
         {
             "name": "Projektideen",
-            "projects": [
-                "Bienen-AG",
-                "LED-Matrix Display",
-                "Transparenter Bildschirm"
-            ]
+            "projects": ["Bienen-AG", "LED-Matrix Display", "Smart Window"]
         }
     ]
 }
