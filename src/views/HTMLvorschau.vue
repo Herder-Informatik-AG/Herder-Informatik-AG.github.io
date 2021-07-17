@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div id="landing-container" class="container-onepage-height">
+        <div id="landing-container">
             <div>
                 <b-button
                     id="showCodeButton"
@@ -63,10 +63,6 @@ export default Vue.extend({
 <style lang="scss">
 @import '../style/bootstrap-component-include';
 @import '../style/pageStyle.scss';
-
-.container-onepage-height {
-    height: calc(100vh - 57px);
-}
 
 .container-onepage {
     height: calc(100vh - 57px);
