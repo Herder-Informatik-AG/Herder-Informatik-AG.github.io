@@ -55,6 +55,18 @@
                         >
                     </b-dropdown-group>
                 </b-nav-item-dropdown>
+                <b-nav-item-dropdown>
+                    <template #button-content>
+                        <icon name="poll" scale="1.2" class="symbol"></icon>
+                        Umfragen
+                    </template>
+                    <b-dropdown-item
+                        v-for="umfrage in umfragen"
+                        :key="umfrage"
+                        :to="'/Umfrage/' + umfrage"
+                        >{{ umfrage }}</b-dropdown-item
+                    >
+                </b-nav-item-dropdown>
             </b-navbar-nav>
             <b-navbar-nav class="ml-auto">
                 <b-nav-form>
@@ -86,7 +98,7 @@ export default Vue.extend({
         return {
             termine: [] as string[],
             projectCategories: [] as Projekt[],
-            umfragen: [] as Umfrage[],
+            umfragen: [] as string[],
         };
     },
     methods: {
@@ -96,7 +108,7 @@ export default Vue.extend({
             const umfragen = await sendJsonRequest<Umfrage[]>(umfragenURL);
             this.termine = termine.filenames;
             this.projectCategories = projekte.categories;
-            this.umfragen = umfragen;
+            this.umfragen = Object.keys(umfragen);
         },
     },
     mounted() {

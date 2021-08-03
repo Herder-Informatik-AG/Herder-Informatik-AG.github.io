@@ -4,19 +4,19 @@
             <div id="landing" class="container container-onepage">
                 <div class="container">
                     <h1>Umfrage</h1>
-                    <div class="col-md-12 col">
-                        <div v-if="link">
+                    <div class="col-md-12 col" style="height: 80%">
+                        <center v-if="link" style="height: 96%">
                             <iframe
                                 :src="link"
-                                width="640"
-                                height="378"
+                                width="100%"
+                                height="100%"
                                 frameborder="0"
                                 marginheight="0"
                                 marginwidth="0"
                                 >Wird geladen...</iframe
                             >
-                        </div>
-                        <div v-else>Ungültige URL: "{{ link }}"</div>
+                        </center>
+                        <div v-else><h2>Umfrage nicht gefunden!</h2></div>
                     </div>
                 </div>
             </div>
@@ -44,12 +44,14 @@ export default Vue.extend({
         $route(to) {
             this.name = to.params.name;
         },
+        async name() {
+            await this.getData();
+        },
     },
     methods: {
         getData: async function () {
             const umfragen = await sendJsonRequest<Umfrage[]>(umfragenURL);
-            console.log(umfragen);
-            this.link = umfragen[this.name].url;
+            this.link = umfragen[this.name];
         },
     },
 });
