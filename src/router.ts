@@ -35,6 +35,10 @@ export default new Router({
             component: () => import('./views/Projekte.vue'),
         },
         {
+            path: '/Umfrage/:name',
+            component: () => import('./views/Umfrage.vue'),
+        },
+        {
             path: '*',
             redirect: '/',
         },

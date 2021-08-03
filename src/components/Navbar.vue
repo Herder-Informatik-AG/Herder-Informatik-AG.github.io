@@ -78,20 +78,25 @@ const terminURL =
     'https://raw.githubusercontent.com/Herder-Informatik-AG/Herder-Informatik-AG.github.io/main/Termine/list.json';
 const projectURL =
     'https://raw.githubusercontent.com/Herder-Informatik-AG/Herder-Informatik-AG.github.io/main/Projekte/list.json';
+const umfragenURL =
+    'https://raw.githubusercontent.com/Herder-Informatik-AG/Herder-Informatik-AG.github.io/main/Umfragen/list.json';
 export default Vue.extend({
     name: 'Navbar',
     data() {
         return {
             termine: [] as string[],
             projectCategories: [] as Projekt[],
+            umfragen: [] as Umfrage[],
         };
     },
     methods: {
         getData: async function () {
             const termine = await sendJsonRequest<Termine>(terminURL);
             const projekte = await sendJsonRequest<Projekte>(projectURL);
+            const umfragen = await sendJsonRequest<Umfrage[]>(umfragenURL);
             this.termine = termine.filenames;
             this.projectCategories = projekte.categories;
+            this.umfragen = umfragen;
         },
     },
     mounted() {
@@ -110,6 +115,10 @@ interface Projekte {
 interface Projekt {
     name: string;
     projects: string[];
+}
+
+interface Umfrage {
+    url: string;
 }
 </script>
 
