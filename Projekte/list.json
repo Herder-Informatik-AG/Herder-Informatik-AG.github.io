@@ -10,7 +10,12 @@
         },
         {
             "name": "Projektideen",
-            "projects": ["Bienen-AG", "LED-Matrix Display", "Smart Window"]
+            "projects": [
+                "Bienen-AG",
+                "LED-Matrix Display",
+                "Smart Window",
+                "Gesellschaftsspiele reimagined"
+            ]
         }
     ]
 }

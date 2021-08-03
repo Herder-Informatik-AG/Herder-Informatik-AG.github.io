@@ -5,7 +5,7 @@
             <div class="viewport-header">
                 <h1 class="glow">
                     Informatik-AG
-                    <!-- <span> Zeit ausstehend</span> -->
+                    <span v-if="false"> Zeit ausstehend</span>
                 </h1>
             </div>
         </header>
