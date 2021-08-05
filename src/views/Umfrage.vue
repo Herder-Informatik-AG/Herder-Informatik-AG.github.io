@@ -3,9 +3,8 @@
         <div id="landing-container">
             <div id="landing" class="container container-onepage">
                 <div class="container">
-                    <h1>Umfrage</h1>
-                    <div class="col-md-12 col" style="height: 80%">
-                        <center v-if="link" style="height: 96%">
+                    <div class="col-md-12 col" style="height: 100%">
+                        <center v-if="link" class="content">
                             <iframe
                                 :src="link"
                                 width="100%"
@@ -69,6 +68,12 @@ interface Umfrage {
 .container-onepage {
     height: calc(100vh - 57px);
     display: table;
+}
+
+.content {
+    $offset: 15px;
+    height: calc(100% - 2 * 15px);
+    margin-top: $offset;
 }
 
 #landing {
